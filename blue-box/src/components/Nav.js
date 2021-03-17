@@ -4,9 +4,9 @@ import "../styles/Nav.css"
 
 function Nav() {
     return (
-      <div className="Nav">
-        <h1>Nav</h1>
-        <ul className="NavLinks">
+      <div className="nav">
+        <h1>Blue Box</h1>
+        <ul>
           <Link to ="/">
             <li>Home</li>
           </Link>
