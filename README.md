@@ -1,4 +1,6 @@
 # MovieRental
 ## To Start React app
-#### cd my-app
+#### $ npm i
+#### $ cd blue-box
+#### $ npm i
 #### npm start
