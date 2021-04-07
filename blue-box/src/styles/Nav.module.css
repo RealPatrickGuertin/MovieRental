@@ -1,0 +1,42 @@
+.nav {
+    padding: 10px;
+    margin: 0px;
+    background: hsl(189, 100%, 47%);
+    color: rgb(255, 0, 0);
+    font-size: 30px;
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "sort profile";
+}
+.header {
+    grid-area: header;
+}
+.sort {
+    grid-area: sort;
+}
+.profile {
+    grid-area: profile;
+    margin-left: 80%;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+li {
+    float: left;
+    margin: 10px;
+    padding: 5px;
+    color:blueviolet;
+    font-size: large;
+    background-color: #fc0000;
+}
+li:hover{
+    color:black;
+}
+
+body {
+    background-color: blueviolet;
+}
