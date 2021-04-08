@@ -13,9 +13,10 @@ export class SignIn extends React.Component {
     })
   }
 
-  onSubmit = (e) => {
+  onSubmit = e => {
     e.preventDefault()
     console.log(this.state)
+    // send values to database here
   }
 
   render() {
@@ -23,25 +24,25 @@ export class SignIn extends React.Component {
       <div>
         <h1>Sign In</h1>
         <form>
-        <label>
-          Username: 
-          <input 
-            type="text" 
-            name="username"
-            value={this.state.username} 
-            onChange={e => this.onChange(e)}/>
-        </label>
-        <br /> <br />
-        <label>
-          Password:
-          <input 
-            type="password" 
-            name="password"
-            value={this.state.password}
-            onChange={e => this.onChange(e)} />
-        </label>
-        <br /> <br />
-        <button onClick={ e => this.onSubmit(e) }>Submit</button>
+          <label>
+            Username: 
+            <input 
+              type="text" 
+              name="username"
+              value={this.state.username} 
+              onChange={e => this.onChange(e)}/>
+          </label>
+          <br /> <br />
+          <label>
+            Password:
+            <input 
+              type="password" 
+              name="password"
+              value={this.state.password}
+              onChange={e => this.onChange(e)} />
+          </label>
+          <br /> <br />
+          <button onClick={ e => this.onSubmit(e) }>Sign In</button>
         </form>
       </div>
     );
