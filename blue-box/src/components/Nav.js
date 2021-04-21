@@ -27,6 +27,9 @@ function Nav() {
           <Link to = "/SignUp">
             <li>Sign Up</li>
           </Link>
+          <Link to = "/Cart">
+            <li>Cart</li>
+          </Link>
         </ul>
       </div>
     );

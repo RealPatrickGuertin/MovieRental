@@ -1,4 +1,5 @@
 import React from 'react'
+import {Redirect} from 'react-router-dom'
 import '../styles/SignIn.module.css'
 
 export class SignUp extends React.Component {
@@ -6,7 +7,8 @@ export class SignUp extends React.Component {
     name: "",
     email: "",
     username: "",
-    password: ""
+    password: "",
+    toHome: false
   };
 
   onChange = e => {
@@ -18,10 +20,30 @@ export class SignUp extends React.Component {
   onSubmit = e => {
     e.preventDefault()
     console.log(this.state)
-    // send values to database here
+    if(this.state.name === ''){
+      alert("Must Input Name")
+    }
+    else if(this.state.email === '') {
+      alert("must Input Email")
+    }
+    else if(this.state.username === ''){
+      alert("Must Input Username") 
+    }
+    else if(this.state.password === ''){
+      alert("Must Input Password") 
+    }
+    else {
+      // send values to database here
+      this.setState({
+        toHome: true
+      })
+    }
   }
 
   render() {
+    if(this.state.toHome === true) {
+      return <Redirect to = "/"/>
+    }
     return (
       <div>
         <h1>Sign Up</h1>
