@@ -1,10 +1,12 @@
 import React from 'react'
+import {Redirect} from 'react-router-dom'
 import '../styles/SignIn.module.css'
 
 export class SignIn extends React.Component {
   state = {
     username: "",
-    password: ""
+    password: "", 
+    userFound: false
   };
 
   onChange = e => {
@@ -16,10 +18,21 @@ export class SignIn extends React.Component {
   onSubmit = e => {
     e.preventDefault()
     console.log(this.state)
-    // send values to database here
+    // if this.state.username and this.state.password are in database{}
+    if(this.state.username === '' || this.state.password === '') {
+     alert("both username and password fields must be filled")
+    }
+    else{
+      this.setState({
+        userFound: true
+      })
+    }
   }
 
   render() {
+    if(this.state.userFound === true) {
+      return <Redirect to = "/"/>
+    }
     return (
       <div>
         <h1>Sign In</h1>
