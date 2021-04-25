@@ -1,6 +1,7 @@
 import React from 'react'
 import {Redirect} from 'react-router-dom'
 import '../styles/SignIn.module.css'
+import Users from '../userDatabase'
 
 export class SignUp extends React.Component {
   state = {
@@ -11,6 +12,14 @@ export class SignUp extends React.Component {
     toHome: false
   };
 
+  clearForm = () => {
+    this.setState({
+      name: "",
+      email: "",
+      username: "",
+      password: ""
+    })
+  }
   onChange = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -33,10 +42,30 @@ export class SignUp extends React.Component {
       alert("Must Input Password") 
     }
     else {
-      // send values to database here
-      this.setState({
-        toHome: true
-      })
+      let name = this.state.name
+      let email = this.state.email
+      let username = this.state.username
+      let password = this.state.password
+      var userFound = false
+      for( var i = 0; i < Users.length; i++) {
+        if(Users[i].username === this.state.username && Users[i].password === this.state.password) {
+          alert('user already found')
+          userFound = true
+          this.clearForm()
+        }
+      }
+      if(!userFound) {
+        Users.push({
+          name,
+          email,
+          username,
+          password
+        })
+        this.setState({
+          toHome: true
+        })
+        console.log(Users)
+      }
     }
   }
 
@@ -47,7 +76,7 @@ export class SignUp extends React.Component {
     return (
       <div>
         <h1>Sign Up</h1>
-        <form>
+        <form id = "sign-up">
           <label>
             Name: 
             <input 
