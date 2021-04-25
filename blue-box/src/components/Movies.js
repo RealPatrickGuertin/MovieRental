@@ -1,21 +1,22 @@
 import React from 'react'
 import Nav from './Nav'
 import Card from './Card'
-import MovieData from '../moviesDatabase'
+import MovieData from '../databases/moviesDatabase'
 
-function makeCardComponents() {
+function makeMovieCards() {
   
   let cardComponents = MovieData.map(movie => 
     <Card 
-      id={movie.id} 
+      key={movie.id} 
       title={movie.title}
-      
+      year={movie.year}
+      price={movie.price}
     />)
     return cardComponents
 }
 
 function Movies() {
-  let cardComponents = makeCardComponents()
+  let cardComponents = makeMovieCards()
     return (
       <div>
         <Nav/>

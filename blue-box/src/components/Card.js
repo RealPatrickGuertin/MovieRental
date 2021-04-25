@@ -10,7 +10,9 @@ function Card(props) {
         <div className = "card">
             <div className="container">
                 <h1>{props.title}</h1>
-                <button onClick={ e => onAddToCart(e) }>Add To Cart</button>
+                <p>Year Produced: {props.year}</p> 
+                <p>price: ${props.price}</p>
+                <button className='button' onClick={ e => onAddToCart(e) }>Add To Cart</button>
             </div>
         </div>
     );
