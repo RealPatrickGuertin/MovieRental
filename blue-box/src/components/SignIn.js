@@ -1,7 +1,7 @@
 import React from 'react'
 import {Redirect} from 'react-router-dom'
 import '../styles/SignIn.module.css'
-import Users from '../userDatabase'
+import Users from '../databases/userDatabase'
 
 export class SignIn extends React.Component {
   state = {
