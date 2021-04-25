@@ -36,7 +36,7 @@ export class SignIn extends React.Component {
 
   render() {
     if(this.state.userFound === true) {
-      return <Redirect to = "/"/>
+      return <Redirect to = "/Cart"/>
     }
     return (
       <div>

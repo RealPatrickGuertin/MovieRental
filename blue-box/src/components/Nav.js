@@ -7,7 +7,7 @@ function Nav() {
       <div className={styles.nav}>
         <h1 className={styles.header}>Blue Box</h1>
         <ul className={styles.sort}>
-          <Link to ="/">
+          <Link to ="/Home">
             <li>Home</li>
           </Link>
           <Link to ="/Movies">
