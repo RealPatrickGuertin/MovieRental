@@ -71,7 +71,7 @@ export class SignUp extends React.Component {
 
   render() {
     if(this.state.toHome === true) {
-      return <Redirect to = "/"/>
+      return <Redirect to = "/Home"/>
     }
     return (
       <div>
