@@ -21,12 +21,6 @@ function Nav() {
           </Link>
         </ul>
         <ul className={styles.profile}>
-          <Link to = "/SignIn">
-            <li>Sign In</li>
-          </Link>
-          <Link to = "/SignUp">
-            <li>Sign Up</li>
-          </Link>
           <Link to = "/Cart">
             <li>Cart</li>
           </Link>

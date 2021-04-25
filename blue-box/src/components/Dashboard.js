@@ -1,12 +1,18 @@
 import React from 'react'
-import SignIn from './SignIn'
-import SignUp from './SignUp'
+import {Link} from 'react-router-dom'
 
 function Dashboard() {
     return (
       <div className="Dashboard">
-        <SignIn/>
-        <SignUp/>
+        <h1>Blue Box</h1>
+        <ul>
+          <Link to = "/SignIn">
+            <li>Sign In</li>
+          </Link>
+          <Link to = "/SignUp">
+            <li>Sign Up</li>
+          </Link>
+        </ul>
       </div>
     );
   }
