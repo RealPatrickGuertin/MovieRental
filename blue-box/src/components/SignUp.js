@@ -48,7 +48,7 @@ export class SignUp extends React.Component {
       let password = this.state.password
       var userFound = false
       for( var i = 0; i < Users.length; i++) {
-        if(Users[i].username === this.state.username && Users[i].password === this.state.password) {
+        if(Users[i].username === this.state.username) {
           alert('user already found')
           userFound = true
           this.clearForm()
