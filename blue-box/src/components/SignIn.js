@@ -1,6 +1,7 @@
 import React from 'react'
 import {Redirect} from 'react-router-dom'
 import '../styles/SignIn.module.css'
+import Users from '../userDatabase'
 
 export class SignIn extends React.Component {
   state = {
@@ -22,10 +23,14 @@ export class SignIn extends React.Component {
     if(this.state.username === '' || this.state.password === '') {
      alert("both username and password fields must be filled")
     }
-    else{
-      this.setState({
-        userFound: true
-      })
+    else {
+      for( var i = 0; i < Users.length; i++) {
+        if(Users[i].username === this.state.username && Users[i].password === this.state.password) {
+          this.setState({
+            userFound: true
+          })
+        }
+      }
     }
   }
 
