@@ -2,6 +2,7 @@ import React from 'react'
 import {Redirect} from 'react-router-dom'
 import '../styles/SignIn.module.css'
 import Users from '../databases/userDatabase'
+import Context from '../databases/Store'
 
 export class SignIn extends React.Component {
   state = {
@@ -29,14 +30,16 @@ export class SignIn extends React.Component {
           this.setState({
             userFound: true
           })
+         
         }
       }
     }
   }
 
   render() {
+    const dir = "/Home/" + this.state.username
     if(this.state.userFound === true) {
-      return <Redirect to = "/Home"/>
+      return <Redirect to = {dir}/>
     }
     return (
       <div>
