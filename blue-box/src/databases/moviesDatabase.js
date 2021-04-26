@@ -1,13 +1,13 @@
 let movies = [
     {
-        id: 1,
+        id: 'm1',
         title: 'Yesman',
         year: '1993',
         price: 2.99,
-        onSale: false
+        onSale: true
     },
     {
-        id: 2,
+        id: 'm2',
         title: 'Noman',
         year: '0',
         price: 5,
