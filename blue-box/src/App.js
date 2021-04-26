@@ -8,22 +8,23 @@ import Movies from './components/Movies'
 import Shows from './components/Shows'
 import Sales from './components/Sales'
 import Cart from './components/Cart'
+import Store from './databases/Store'
 
 function App() {
     return(
         <Router>
-            <div className="App">
+            <Store>
                 <Switch>
                     <Route exact path="/" component = {Dashboard}/>
                     <Route path="/SignIn" component = {SignIn} />
                     <Route path="/SignUp" component = {SignUp} />
                     <Route path="/Cart/:user" component = {Cart} />
-                    <Route path="/Home" component={Home} />
-                    <Route path="/Movies" component = {Movies} />
-                    <Route path="/Shows" component = {Shows} />
-                    <Route path="/Sales" component = {Sales} />
+                    <Route path="/Home/:user" component={Home} />
+                    <Route path="/Movies/:user" component = {Movies} />
+                    <Route path="/Shows/:user" component = {Shows} />
+                    <Route path="/Sales/:user" component = {Sales} />
                 </Switch>
-            </div>
+            </Store>
         </Router>
     )
 }
