@@ -33,7 +33,7 @@ function Home() {
     return (
       <div>
         <Nav/>
-        <h1>On Sale</h1>
+        <h1>Home</h1>
         <h3>Movies</h3>
         {filteredMovies}
         <h3>Shows</h3>
