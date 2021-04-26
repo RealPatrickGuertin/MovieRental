@@ -46,6 +46,7 @@ export class SignUp extends React.Component {
       let email = this.state.email
       let username = this.state.username
       let password = this.state.password
+      let cart = []
       var userFound = false
       for( var i = 0; i < Users.length; i++) {
         if(Users[i].username === this.state.username) {
@@ -59,7 +60,8 @@ export class SignUp extends React.Component {
           name,
           email,
           username,
-          password
+          password, 
+          cart
         })
         this.setState({
           toHome: true
@@ -70,8 +72,9 @@ export class SignUp extends React.Component {
   }
 
   render() {
+    const dir = "/Home/" + this.state.username
     if(this.state.toHome === true) {
-      return <Redirect to = "/Home"/>
+      return <Redirect to = {dir}/>
     }
     return (
       <div>
