@@ -1,58 +1,47 @@
-import React from 'react'
-import {Redirect} from 'react-router-dom'
+import React, { useState, useContext } from 'react'
+import { useHistory } from "react-router-dom";
 import '../styles/SignIn.module.css'
 import Users from '../databases/userDatabase'
+import {Context} from '../databases/Store'
 
-export class SignUp extends React.Component {
-  state = {
-    name: "",
-    email: "",
-    username: "",
-    password: "",
-    toHome: false
-  };
+function SignUp() {
+  let history = useHistory();
+  const [state, setState] = useContext(Context)
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
 
-  clearForm = () => {
-    this.setState({
-      name: "",
-      email: "",
-      username: "",
-      password: ""
-    })
-  }
-  onChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
+  function clearForm() {
+    setName("")
+    setEmail("")
+    setUsername("")
+    setPassword("")
   }
 
-  onSubmit = e => {
+  function onSubmit(e) {
     e.preventDefault()
-    console.log(this.state)
-    if(this.state.name === ''){
+    console.log(state)
+    if(name === ''){
       alert("Must Input Name")
     }
-    else if(this.state.email === '') {
+    else if(email === '') {
       alert("must Input Email")
     }
-    else if(this.state.username === ''){
+    else if(username === ''){
       alert("Must Input Username") 
     }
-    else if(this.state.password === ''){
+    else if(password === ''){
       alert("Must Input Password") 
     }
     else {
-      let name = this.state.name
-      let email = this.state.email
-      let username = this.state.username
-      let password = this.state.password
       let cart = []
       var userFound = false
       for( var i = 0; i < Users.length; i++) {
-        if(Users[i].username === this.state.username) {
+        if(Users[i].username === username) {
           alert('user already found')
           userFound = true
-          this.clearForm()
+          clearForm()
         }
       }
       if(!userFound) {
@@ -63,63 +52,57 @@ export class SignUp extends React.Component {
           password, 
           cart
         })
-        this.setState({
-          toHome: true
-        })
+        setState(username)
+        const dir = "/Home/" + username
+        history.push(dir)
         console.log(Users)
       }
     }
   }
 
-  render() {
-    const dir = "/Home/" + this.state.username
-    if(this.state.toHome === true) {
-      return <Redirect to = {dir}/>
-    }
-    return (
-      <div>
-        <h1>Sign Up</h1>
-        <form id = "sign-up">
-          <label>
-            Name: 
-            <input 
-              type="text" 
-              name="name"
-              value={this.state.name} 
-              onChange={e => this.onChange(e)}/>
-          </label>
-          <label>
-            Email: 
-            <input 
-              type="text" 
-              name="email"
-              value={this.state.email} 
-              onChange={e => this.onChange(e)}/>
-          </label>
-          <br/> <br/>
-          <label>
-            Username: 
-            <input 
-              type="text" 
-              name="username"
-              value={this.state.username} 
-              onChange={e => this.onChange(e)}/>
-          </label>
-          <br /> <br />
-          <label>
-            Password:
-            <input 
-              type="password" 
-              name="password"
-              value={this.state.password}
-              onChange={e => this.onChange(e)} />
-          </label>
-          <br /> <br />
-          <button onClick={ e => this.onSubmit(e) }>Sign Up</button>
-        </form>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <h1>Sign Up</h1>
+      <form id = "sign-up">
+        <label>
+          Name: 
+          <input 
+            type="text" 
+            name="name"
+            value={name} 
+            onChange={ e => setName(e.target.value) }/>
+        </label>
+        <label>
+          Email: 
+          <input 
+            type="text" 
+            name="email"
+            value={email} 
+            onChange={ e => setEmail(e.target.value) }/>
+        </label>
+        <br/> <br/>
+        <label>
+          Username: 
+          <input 
+            type="text" 
+            name="username"
+            value={username} 
+            onChange={ e => setUsername(e.target.value) }/>
+        </label>
+        <br /> <br />
+        <label>
+          Password:
+          <input 
+            type="password" 
+            name="password"
+            value={password}
+            onChange={ e => setPassword(e.target.value) } />
+        </label>
+        <br /> <br />
+        <button onClick={ onSubmit }>Sign Up</button>
+      </form>
+    </div>
+  );
 }
 
 export default SignUp;
