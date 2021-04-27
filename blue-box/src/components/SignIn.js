@@ -6,7 +6,7 @@ import {Context} from '../databases/Store'
 
 function SignIn() {
   let history = useHistory();
-  const [setState] = useContext(Context)
+  const [state, setState] = useContext(Context)
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   
@@ -19,6 +19,7 @@ function SignIn() {
       for( var i = 0; i < Users.length; i++) {
         if(Users[i].username === username && Users[i].password === password) {
           setState(username)
+          console.log(state)
           const dir = "/Home/" + username
           history.push(dir)
         }
