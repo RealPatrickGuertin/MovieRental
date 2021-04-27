@@ -1,31 +1,6 @@
 import React from 'react'
 import Nav from './Nav'
-import Card from './Card'
-import MovieData from '../databases/moviesDatabase'
-import ShowData from '../databases/showsDatabase'
-
-function makeShowCards() {
-  let cardComponents = ShowData.map(show => 
-    <Card 
-      key={show.id} 
-      title={show.title}
-      year={show.year}
-      price={show.price}
-    />)
-    return cardComponents
-}
-
-function makeMovieCards() {
-  
-  let cardComponents = MovieData.map(movie => 
-    <Card 
-      key={movie.id} 
-      title={movie.title}
-      year={movie.year}
-      price={movie.price}
-    />)
-    return cardComponents
-}
+import {makeShowCards, makeMovieCards} from './functions'
 
 function Home() {
     let filteredMovies = makeMovieCards()
