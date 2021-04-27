@@ -9,6 +9,7 @@ import Shows from './components/Shows'
 import Sales from './components/Sales'
 import Cart from './components/Cart'
 import Store from './databases/Store'
+import Checkout from './components/Checkout'
 
 function App() {
     return(
@@ -23,6 +24,7 @@ function App() {
                     <Route path="/Movies/:user" component = {Movies} />
                     <Route path="/Shows/:user" component = {Shows} />
                     <Route path="/Sales/:user" component = {Sales} />
+                    <Route path="/Checkout/:user" component = {Checkout} />
                 </Switch>
             </Store>
         </Router>
