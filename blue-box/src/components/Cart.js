@@ -13,10 +13,10 @@ function Cart() {
       <Nav/>
       <h1>Cart</h1>
       <h3>User: {user}</h3>
-      {cart}
       <Link to={'/Checkout/'+state}>
         <h1>Checkout</h1>
       </Link>
+      {cart}
     </div>
   );
 }
