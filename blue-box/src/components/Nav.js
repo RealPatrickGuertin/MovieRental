@@ -28,6 +28,9 @@ function Nav() {
         <Link to = {'/Cart/'+state}>
           <li>Cart</li>
         </Link>
+        <Link to = {'/'}>
+          <li>Log Out</li>
+        </Link>
       </ul>
     </div>
   );
