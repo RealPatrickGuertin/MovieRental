@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom'
 import styles from "../styles/Nav.module.css"
 import { Context } from '../databases/Store'
 
-
-
 function Nav() {
   const [state] = useContext(Context)
   return (
