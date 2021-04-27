@@ -33,13 +33,13 @@ export class SignUp extends React.Component {
       alert("Must Input Name")
     }
     else if(this.state.email === '') {
-      alert("must Input Email")
+      alert("Must Input Email")
     }
     else if(this.state.username === ''){
-      alert("Must Input Username") 
+      alert("Must Input Username")
     }
     else if(this.state.password === ''){
-      alert("Must Input Password") 
+      alert("Must Input Password")
     }
     else {
       let name = this.state.name
@@ -60,7 +60,7 @@ export class SignUp extends React.Component {
           name,
           email,
           username,
-          password, 
+          password,
           cart
         })
         this.setState({
@@ -81,35 +81,35 @@ export class SignUp extends React.Component {
         <h1>Sign Up</h1>
         <form id = "sign-up">
           <label>
-            Name: 
-            <input 
-              type="text" 
+            Name:
+            <input
+              type="text"
               name="name"
-              value={this.state.name} 
+              value={this.state.name}
               onChange={e => this.onChange(e)}/>
           </label>
           <label>
-            Email: 
-            <input 
-              type="text" 
+            Email:
+            <input
+              type="text"
               name="email"
-              value={this.state.email} 
+              value={this.state.email}
               onChange={e => this.onChange(e)}/>
           </label>
           <br/> <br/>
           <label>
-            Username: 
-            <input 
-              type="text" 
+            Username:
+            <input
+              type="text"
               name="username"
-              value={this.state.username} 
+              value={this.state.username}
               onChange={e => this.onChange(e)}/>
           </label>
           <br /> <br />
           <label>
             Password:
-            <input 
-              type="password" 
+            <input
+              type="password"
               name="password"
               value={this.state.password}
               onChange={e => this.onChange(e)} />
