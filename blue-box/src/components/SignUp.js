@@ -33,6 +33,7 @@ function SignUp() {
     }
     else if(password === ''){
       alert("Must Input Password") 
+
     }
     else {
       let cart = []
@@ -49,7 +50,7 @@ function SignUp() {
           name,
           email,
           username,
-          password, 
+          password,
           cart
         })
         setState(username)
