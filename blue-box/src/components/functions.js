@@ -2,6 +2,9 @@ import React from 'react'
 import Card from './Card'
 import MovieData from '../databases/moviesDatabase'
 import ShowData from '../databases/showsDatabase'
+import userData from '../databases/userDatabase'
+import CartCard from '../components/CartCard'
+import {useParams} from 'react-router-dom'
 
 export function makeShowCards() {
     let cardComponents = ShowData.map(show => 
@@ -48,3 +51,19 @@ export function filterMovies() {
       />)
     return cardComponents
   }
+
+export function GetCart() {
+  const {user} = useParams()
+  let cardComponents = userData.filter(item => item.username === user && item.cart).map( item => item.cart)[0].map(item => 
+    <CartCard
+      key={item.id}
+      title={item.title}
+      year={item.year}
+      price={item.price}
+    />)
+  return cardComponents
+}
+
+export function getCheckoutPrice() {
+ 
+}
