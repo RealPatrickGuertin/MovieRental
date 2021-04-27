@@ -26,7 +26,7 @@ function SignUp() {
       alert("Must Input Name")
     }
     else if(email === '') {
-      alert("must Input Email")
+      alert("Must Input Email")
     }
     else if(username === ''){
       alert("Must Input Username") 
