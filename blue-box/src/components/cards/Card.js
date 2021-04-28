@@ -1,18 +1,36 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../../databases/Store'
 import '../../styles/Card.css'
+import Users from '../../databases/userDatabase'
 
-function onAddToCart(e) {
-    
+function onAddToCart(e, props, username) {
+    const id = props.id
+    const title = props.title
+    const year = props.year
+    const price = props.price
+    const onSale = props.onSale
+    for(let i = 0; i < Users.length; i++) {
+        if(Users[i].username === username) {
+            Users[i].cart.push( {
+                id,
+                title,
+                year,
+                price,
+                onSale
+            })
+        }
+    }
 }
 
 function Card(props) {
+    const [state] = useContext(Context)
     return (
         <div className = "card">
             <div className="container">
                 <h1>{props.title}</h1>
                 <p>Year Produced: {props.year}</p> 
                 <p>price: ${props.price}</p>
-                <button className='button' onClick={ e => onAddToCart(e) }>Add To Cart</button>
+                <button className='button' onClick={ e => onAddToCart(e, props, state) }>Add To Cart</button>
             </div>
         </div>
     );
