@@ -19,9 +19,9 @@ function SignIn() {
       for( var i = 0; i < Users.length; i++) {
         if(Users[i].username === username && Users[i].password === password) {
           setState(username)
-          console.log(state)
           const dir = "/Home/" + username
           history.push(dir)
+          console.log(state)
         }
       }
     }

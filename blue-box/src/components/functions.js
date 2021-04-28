@@ -106,7 +106,6 @@ export function GetCheckoutPrice() {
       if(cardComponents[i] !== undefined) {
         price = price + cardComponents[i].props.price
         fixedPrice = price.toFixed(2)
-        console.log(price)
       }
     }
   return fixedPrice
