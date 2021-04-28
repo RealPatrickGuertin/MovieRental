@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Nav from './Nav'
 import {useParams, Link} from 'react-router-dom'
 import { Context } from '../databases/Store'
-import { GetCart } from './functions'
+import { GetCartCards } from './functions'
 
 function Cart() {
   const [state] = useContext(Context)
+  const [cart, setCart] = useState(GetCartCards())
   const {user} = useParams()
-  let cart = GetCart()
   return (
     <div className="Cart">
       <Nav/>
