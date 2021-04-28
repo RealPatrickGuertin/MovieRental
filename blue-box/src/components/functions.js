@@ -57,7 +57,7 @@ export function filterMovies() {
     return cardComponents
   }
 
-export function GetCart() {
+export function GetCartCards() {
   const {user} = useParams()
   let cardComponents = userData.filter(
     item => item.username === user && item.cart).map( 
@@ -71,6 +71,23 @@ export function GetCart() {
             price={item.price}
     />)
   return cardComponents
+}
+
+export function GetCart() {
+  const {user} = useParams()
+  let usersCart = userData.filter(
+    item => item.username === user && item.cart).map( 
+      item => item.cart)[0].map(
+        item => 
+          {
+            key=item.id
+            id=item.id
+            title=item.title
+            year=item.year
+            price=item.price
+          }
+            )
+  return usersCart
 }
 
 export function GetCheckout() {
