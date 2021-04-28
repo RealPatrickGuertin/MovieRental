@@ -10,7 +10,7 @@ function Checkout() {
     return (
         <div>
             <Nav/>
-            <h1>checkout</h1>
+            <h1>Checkout</h1>
             <h3>User: {user}</h3>
             {cart}
             <h1>Total: ${price}</h1>
