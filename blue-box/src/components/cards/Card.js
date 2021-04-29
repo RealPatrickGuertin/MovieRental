@@ -9,6 +9,7 @@ function onAddToCart(e, props, username) {
     const year = props.year
     const price = props.price
     const onSale = props.onSale
+    const handleDelete = props.handleDelete
     for(let i = 0; i < Users.length; i++) {
         if(Users[i].username === username) {
             Users[i].cart.push( {
@@ -16,7 +17,8 @@ function onAddToCart(e, props, username) {
                 title,
                 year,
                 price,
-                onSale
+                onSale,
+                handleDelete
             })
         }
     }

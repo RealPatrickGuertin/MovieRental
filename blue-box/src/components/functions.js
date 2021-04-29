@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from './cards/Card'
+import Users from '../databases/userDatabase'
 import MovieData from '../databases/moviesDatabase'
 import ShowData from '../databases/showsDatabase'
 import userData from '../databases/userDatabase'
@@ -20,14 +21,13 @@ export function makeShowCards() {
 }
 
 export function makeMovieCards() {
-
-let cardComponents = MovieData.map(movie => 
+  let cardComponents = MovieData.map(movie => 
     <Card 
-    key={movie.id}
-    id={movie.id} 
-    title={movie.title}
-    year={movie.year}
-    price={movie.price}
+      key={movie.id}
+      id={movie.id} 
+      title={movie.title}
+      year={movie.year}
+      price={movie.price}
     />)
     return cardComponents
 }
@@ -44,7 +44,6 @@ export function filterShows() {
     return cardComponents
   }
   
-  
 export function filterMovies() {
     let cardComponents = MovieData.filter(movie => movie.onSale === true).map( movie =>
       <Card 
@@ -56,6 +55,16 @@ export function filterMovies() {
       />)
     return cardComponents
   }
+
+export function getCart(username) {
+  let foundUser = []
+  for(let i = 0; i < Users.length; i++) {
+    if(Users[i].username === username) {
+      foundUser = Users[i].cart
+    }
+  }
+  return foundUser
+}
 
 export function GetCartCards() {
   const {user} = useParams()
@@ -71,23 +80,6 @@ export function GetCartCards() {
             price={item.price}
     />)
   return cardComponents
-}
-
-export function GetCart() {
-  const {user} = useParams()
-  let usersCart = userData.filter(
-    item => item.username === user && item.cart).map( 
-      item => item.cart)[0].map(
-        item => 
-          {
-            key=item.id
-            id=item.id
-            title=item.title
-            year=item.year
-            price=item.price
-          }
-            )
-  return usersCart
 }
 
 export function GetCheckout() {
@@ -108,22 +100,12 @@ export function GetCheckout() {
 
 export function GetCheckoutPrice() {
   const {user} = useParams()
-  let price = 0;
-  let fixedPrice = price
-  let cardComponents = userData.filter(
-    item => item.username === user && item.cart).map( 
-      item => item.cart)[0].map(
-        item => 
-          <Card
-            key={item.id}
-            id={item.id}
-            price={item.price}
-    />)
-    for(let i = 0; i < cardComponents.length; i++) {
-      if(cardComponents[i] !== undefined) {
-        price = price + cardComponents[i].props.price
-        fixedPrice = price.toFixed(2)
-      }
+  const cart = getCart(user)
+  let price = 0
+  let fixedPrice = 0
+    for(let i = 0; i < cart.length; i++) {
+      price = price + cart[i].price
+      fixedPrice = price.toFixed(2)
     }
   return fixedPrice
 }
