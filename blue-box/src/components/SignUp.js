@@ -13,8 +13,6 @@ function SignUp() {
   const [password, setPassword] = useState("")
 
   function clearForm() {
-    setName("")
-    setEmail("")
     setUsername("")
     setPassword("")
   }
