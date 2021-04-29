@@ -1,11 +1,16 @@
 import React from 'react'
+import Nav from './Nav'
+import {makeShowCards} from './functions'
 
 function Shows() {
-    return (
-      <div>
-        <h1>Shows</h1>
-      </div>
-    );
-  }
+  let cardComponents = makeShowCards()
+  return (
+    <div>
+      <Nav/>
+      <h1>Shows</h1>
+      {cardComponents}
+    </div>
+  );
+}
   
   export default Shows;

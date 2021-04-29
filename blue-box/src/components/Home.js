@@ -1,11 +1,19 @@
 import React from 'react'
-import '../styles/Home.css';
+import Nav from './Nav'
+import {makeShowCards, makeMovieCards} from './functions'
 
 function Home() {
-  return (
-    <div className="Home">
-      <h1>Home</h1>
-    </div>
+    let filteredMovies = makeMovieCards()
+    let filteredShows = makeShowCards()
+    return (
+      <div>
+        <Nav/>
+        <h1>Home</h1>
+        <h3>Movies</h3>
+        {filteredMovies}
+        <h3>Shows</h3>
+        {filteredShows}
+      </div>
   );
 }
 
