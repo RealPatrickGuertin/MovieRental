@@ -1,0 +1,9 @@
+form {
+    margin: auto;
+    padding: 10px;
+    background: hsl(189, 100%, 47%);
+}
+label {
+    padding-bottom: 10px;
+    margin: auto;
+}
