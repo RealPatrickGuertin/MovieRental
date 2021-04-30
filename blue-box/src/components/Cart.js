@@ -1,13 +1,23 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Nav from './Nav'
 import {useParams, Link} from 'react-router-dom'
 import { Context } from '../databases/Store'
-import { GetCart } from './functions'
+import { getCart, GetCartCards } from './functions'
 
 function Cart() {
+  
   const [state] = useContext(Context)
   const {user} = useParams()
-  let cart = GetCart()
+  let currCart = getCart(user)
+  const [cart, setCart] = useState(currCart)
+  const [cartCards, setCartCards] = useState(GetCartCards())
+
+  function update() {
+    setCart(getCart(user))
+    setCartCards((GetCartCards))
+    console.log(cart)
+  }
+
   return (
     <div className="Cart">
       <Nav/>
@@ -16,7 +26,8 @@ function Cart() {
       <Link to={'/Checkout/'+state}>
         <h1>Checkout</h1>
       </Link>
-      {cart}
+      {cartCards}
+      <button onClick={ update }>Update Cart</button>
     </div>
   );
 }

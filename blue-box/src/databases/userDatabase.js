@@ -1,5 +1,6 @@
 let users = [
     {
+      
         id: 1,
         name: 'Admin',
         email: 'BlueBoxAdmin@BlueBox.com',
@@ -13,15 +14,7 @@ let users = [
         email: 'patrick_g63@gmail.com',
         username: 'patrick',
         password: '1234',
-        cart: [
-            {
-                id: 's1',
-                title: 'Friends',
-                year: '2021',
-                price: 800,
-                onSale: false
-            }
-        ]
+        cart: []
     },
     {
         id: 3,
@@ -154,7 +147,7 @@ let users = [
                 onSale: false
             }
         ]
-    },
+    }
 ]
 
 export default users
