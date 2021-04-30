@@ -10,11 +10,10 @@ function CartCard(props) {
         for(let i = 0; i < Users.length; i++) {
             if(Users[i].username === username) {
                 for(let j = 0; j < Users[i].cart.length; j++) {
-                    if(Users[i].cart[j] !== undefined) {
-                        if(Users[i].cart[j].id === e.id) {
-                            Users[i].cart.pop(Users[i].cart[j])
-                            break
-                        }
+                    if(Users[i].cart[j].id === e.id) {
+                        const index = Users[i].cart.indexOf(Users[i].cart[j])
+                        Users[i].cart.splice(index, 1)
+                        break
                     }
                 }
             }
