@@ -14,7 +14,7 @@ function Cart() {
 
   function update() {
     setCart(getCart(user))
-    setCartCards((GetCartCards))
+    setCartCards(GetCartCards)
     console.log(cart)
   }
 
