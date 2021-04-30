@@ -11,10 +11,15 @@ function SignUp() {
   const [email, setEmail] = useState("")
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
 
   function clearForm() {
     setUsername("")
     setPassword("")
+  }
+  function clearPasswords() {
+    setPassword("")
+    setConfirmPassword("")
   }
 
   function onSubmit(e) {
@@ -31,8 +36,12 @@ function SignUp() {
     }
     else if(password === ''){
       alert("Must Input Password") 
-
     }
+    else if(password !== confirmPassword) {
+      alert("passwords are not the same")
+      clearPasswords()
+    }
+
     else {
       let cart = []
       var userFound = false
@@ -96,6 +105,14 @@ function SignUp() {
             name="password"
             value={password}
             onChange={ e => setPassword(e.target.value) } />
+        </label>
+        <label>
+          Confirm Password:
+          <input 
+            type="password" 
+            name="consirm-password"
+            value={confirmPassword}
+            onChange={ e => setConfirmPassword(e.target.value) } />
         </label>
         <br /> <br />
         <button onClick={ onSubmit }>Sign Up</button>
