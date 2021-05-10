@@ -1,0 +1,18 @@
+.Dashboard ul{
+    display: flex;
+    justify-content: center;
+}
+.logo {
+    text-align: center;
+    font-size: 100px;
+}
+
+.logo {
+    background-color: #1a0bec;
+    color: red;
+    border-style: solid;
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}

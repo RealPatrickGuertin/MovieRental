@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { useHistory } from "react-router-dom";
 import '../styles/SignIn.module.css'
+import '../styles/Dashboard.css'
 import Users from '../databases/userDatabase'
 import {Context} from '../databases/Store'
 
@@ -70,6 +71,7 @@ function SignUp() {
 
   return (
     <div>
+      <h1 className='logo'>Blue Box</h1>
       <h1>Sign Up</h1>
       <form id = "sign-up">
         <label>
@@ -80,6 +82,7 @@ function SignUp() {
             value={name} 
             onChange={ e => setName(e.target.value) }/>
         </label>
+        <br/> <br/>
         <label>
           Email: 
           <input 
@@ -106,6 +109,7 @@ function SignUp() {
             value={password}
             onChange={ e => setPassword(e.target.value) } />
         </label>
+        <br/> <br/>
         <label>
           Confirm Password:
           <input 
