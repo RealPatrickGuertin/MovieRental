@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { useHistory } from "react-router-dom";
 import '../styles/SignIn.module.css'
+import '../styles/Dashboard.css'
 import Users from '../databases/userDatabase'
 import {Context} from '../databases/Store'
 
@@ -11,10 +12,15 @@ function SignUp() {
   const [email, setEmail] = useState("")
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
 
   function clearForm() {
     setUsername("")
     setPassword("")
+  }
+  function clearPasswords() {
+    setPassword("")
+    setConfirmPassword("")
   }
 
   function onSubmit(e) {
@@ -31,8 +37,12 @@ function SignUp() {
     }
     else if(password === ''){
       alert("Must Input Password") 
-
     }
+    else if(password !== confirmPassword) {
+      alert("passwords are not the same")
+      clearPasswords()
+    }
+
     else {
       let cart = []
       var userFound = false
@@ -61,6 +71,7 @@ function SignUp() {
 
   return (
     <div>
+      <h1 className='logo'>Blue Box</h1>
       <h1>Sign Up</h1>
       <form id = "sign-up">
         <label>
@@ -71,6 +82,7 @@ function SignUp() {
             value={name} 
             onChange={ e => setName(e.target.value) }/>
         </label>
+        <br/> <br/>
         <label>
           Email: 
           <input 
@@ -96,6 +108,15 @@ function SignUp() {
             name="password"
             value={password}
             onChange={ e => setPassword(e.target.value) } />
+        </label>
+        <br/> <br/>
+        <label>
+          Confirm Password:
+          <input 
+            type="password" 
+            name="consirm-password"
+            value={confirmPassword}
+            onChange={ e => setConfirmPassword(e.target.value) } />
         </label>
         <br /> <br />
         <button onClick={ onSubmit }>Sign Up</button>

@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { useHistory } from "react-router-dom";
 import '../styles/SignIn.module.css'
+import '../styles/Dashboard.css'
 import Users from '../databases/userDatabase'
 import {Context} from '../databases/Store'
 
@@ -29,6 +30,7 @@ function SignIn() {
   
   return (
     <div>
+      <h1 className='logo'>Blue Box</h1>
       <h1>Sign In</h1>
       <form>
         <label>
